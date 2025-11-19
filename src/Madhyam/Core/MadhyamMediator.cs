@@ -2,7 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Madhyam;
 
-public class MadhyamMediator : IMadhyam
+public class MadhyamMediator : IMadhyam, ISender, IPublisher
 {
     private readonly IServiceProvider _provider;
 
