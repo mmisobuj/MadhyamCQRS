@@ -1,13 +1,15 @@
+using Madhyam.Abstractions;
+using Madhyam.Logging;
 using Microsoft.Extensions.Logging;
 
-namespace Madhyam;
+namespace Madhyam.Decorators;
 
 public class LoggingRequestHandlerDecorator<TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
     where TRequest : IRequest<TResponse>
 {
     private readonly IRequestHandler<TRequest, TResponse> _inner;
     private readonly ILogger<LoggingRequestHandlerDecorator<TRequest, TResponse>> _logger;
-    private readonly LogLevel? _level;
+    private readonly EnumLogLevel? _level;
 
     public LoggingRequestHandlerDecorator(
         IRequestHandler<TRequest, TResponse> inner,
@@ -39,15 +41,15 @@ public class LoggingRequestHandlerDecorator<TRequest, TResponse> : IRequestHandl
         return result;
     }
 
-    private static Microsoft.Extensions.Logging.LogLevel Map(LogLevel level)
+    private static Microsoft.Extensions.Logging.LogLevel Map(EnumLogLevel level)
         => level switch
         {
-            LogLevel.Trace => Microsoft.Extensions.Logging.LogLevel.Trace,
-            LogLevel.Debug => Microsoft.Extensions.Logging.LogLevel.Debug,
-            LogLevel.Information => Microsoft.Extensions.Logging.LogLevel.Information,
-            LogLevel.Warning => Microsoft.Extensions.Logging.LogLevel.Warning,
-            LogLevel.Error => Microsoft.Extensions.Logging.LogLevel.Error,
-            LogLevel.Critical => Microsoft.Extensions.Logging.LogLevel.Critical,
+            EnumLogLevel.Trace => Microsoft.Extensions.Logging.LogLevel.Trace,
+            EnumLogLevel.Debug => Microsoft.Extensions.Logging.LogLevel.Debug,
+            EnumLogLevel.Information => Microsoft.Extensions.Logging.LogLevel.Information,
+            EnumLogLevel.Warning => Microsoft.Extensions.Logging.LogLevel.Warning,
+            EnumLogLevel.Error => Microsoft.Extensions.Logging.LogLevel.Error,
+            EnumLogLevel.Critical => Microsoft.Extensions.Logging.LogLevel.Critical,
             _ => Microsoft.Extensions.Logging.LogLevel.Information
         };
 }

@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Madhyam;
+namespace Madhyam.Extensions;
 
 public static class DecoratorExtensions
 {

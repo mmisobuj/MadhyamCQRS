@@ -1,7 +1,10 @@
+using Madhyam.Abstractions;
+using Madhyam.Core;
+using Madhyam.Decorators;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace Madhyam;
+namespace Madhyam.Extensions;
 
 public static class ServiceCollectionExtensions
 {

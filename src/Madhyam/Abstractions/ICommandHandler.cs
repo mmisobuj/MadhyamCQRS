@@ -1,4 +1,4 @@
-namespace Madhyam;
+namespace Madhyam.Abstractions;
 
 public interface ICommandHandler<TCommand, TResponse>
     where TCommand : ICommand<TResponse>

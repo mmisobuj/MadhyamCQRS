@@ -1,4 +1,4 @@
-namespace Madhyam;
+namespace Madhyam.Abstractions;
 
 public interface INotificationHandler<TNotification>
     where TNotification : INotification

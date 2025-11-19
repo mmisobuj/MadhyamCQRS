@@ -1,4 +1,4 @@
-namespace Madhyam;
+namespace Madhyam.Abstractions;
 
 public interface IQuery<TResponse> : IRequest<TResponse>
 {

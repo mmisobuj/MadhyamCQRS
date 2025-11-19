@@ -1,17 +1,17 @@
-namespace Madhyam;
+namespace Madhyam.Logging;
 
 [AttributeUsage(AttributeTargets.Class, Inherited = false)]
 public sealed class MadhyamLoggingAttribute : Attribute
 {
-    public LogLevel Level { get; }
+    public EnumLogLevel Level { get; }
 
-    public MadhyamLoggingAttribute(LogLevel level = LogLevel.Information)
+    public MadhyamLoggingAttribute(EnumLogLevel level = EnumLogLevel.Information)
     {
         Level = level;
     }
 }
 
-public enum LogLevel
+public enum EnumLogLevel
 {
     Trace,
     Debug,

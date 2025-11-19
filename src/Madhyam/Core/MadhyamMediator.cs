@@ -1,6 +1,7 @@
+using Madhyam.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Madhyam;
+namespace Madhyam.Core;
 
 public class MadhyamMediator : IMadhyam, ISender, IPublisher
 {

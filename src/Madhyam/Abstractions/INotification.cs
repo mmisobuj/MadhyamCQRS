@@ -1,3 +1,3 @@
-namespace Madhyam;
+namespace Madhyam.Abstractions;
 
 public interface INotification { }

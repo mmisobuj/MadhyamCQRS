@@ -1,13 +1,15 @@
+using Madhyam.Abstractions;
+using Madhyam.Logging;
 using Microsoft.Extensions.Logging;
 
-namespace Madhyam;
+namespace Madhyam.Decorators;
 
 public class LoggingNotificationHandlerDecorator<TNotification> : INotificationHandler<TNotification>
     where TNotification : INotification
 {
     private readonly INotificationHandler<TNotification> _inner;
     private readonly ILogger<LoggingNotificationHandlerDecorator<TNotification>> _logger;
-    private readonly LogLevel? _level;
+    private readonly EnumLogLevel? _level;
 
     public LoggingNotificationHandlerDecorator(
         INotificationHandler<TNotification> inner,
@@ -37,15 +39,15 @@ public class LoggingNotificationHandlerDecorator<TNotification> : INotificationH
         }
     }
 
-    private static Microsoft.Extensions.Logging.LogLevel Map(LogLevel level)
+    private static LogLevel Map(EnumLogLevel level)
         => level switch
         {
-            LogLevel.Trace => Microsoft.Extensions.Logging.LogLevel.Trace,
-            LogLevel.Debug => Microsoft.Extensions.Logging.LogLevel.Debug,
-            LogLevel.Information => Microsoft.Extensions.Logging.LogLevel.Information,
-            LogLevel.Warning => Microsoft.Extensions.Logging.LogLevel.Warning,
-            LogLevel.Error => Microsoft.Extensions.Logging.LogLevel.Error,
-            LogLevel.Critical => Microsoft.Extensions.Logging.LogLevel.Critical,
-            _ => Microsoft.Extensions.Logging.LogLevel.Information
+            EnumLogLevel.Trace => LogLevel.Trace,
+            EnumLogLevel.Debug => LogLevel.Debug,
+            EnumLogLevel.Information => LogLevel.Information,
+            EnumLogLevel.Warning => LogLevel.Warning,
+            EnumLogLevel.Error => LogLevel.Error,
+            EnumLogLevel.Critical => LogLevel.Critical,
+            _ => LogLevel.Information
         };
 }

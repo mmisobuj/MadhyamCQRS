@@ -1,10 +1,13 @@
 // Example usage file — keep in Examples for reference only.
 
+using Madhyam.Abstractions;
+using Madhyam.Logging;
+
 namespace Madhyam.Examples;
 
 public record GetUserQuery(int Id) : IQuery<string>;
 
-[MadhyamLogging(LogLevel.Debug)]
+[MadhyamLogging(EnumLogLevel.Debug)]
 public class GetUserQueryHandler : IQueryHandler<GetUserQuery, string>
 {
     public Task<string> HandleAsync(GetUserQuery query, CancellationToken ct = default)
@@ -13,7 +16,7 @@ public class GetUserQueryHandler : IQueryHandler<GetUserQuery, string>
 
 public record CreateUserCommand(string Name) : ICommand<int>;
 
-[MadhyamLogging(LogLevel.Information)]
+[MadhyamLogging(EnumLogLevel.Information)]
 public class CreateUserCommandHandler : ICommandHandler<CreateUserCommand, int>
 {
     public Task<int> HandleAsync(CreateUserCommand command, CancellationToken ct = default)

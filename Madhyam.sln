@@ -4,6 +4,13 @@ VisualStudioVersion = 18.0.11205.157 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Madhyam", "src\Madhyam\Madhyam.csproj", "{A0F8B39E-E4B2-4F8D-9F39-83644A46F7E3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{26898102-8BF8-465E-8E63-86901F16F6D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{112EE11A-DC08-4A2E-9096-A4E07E49D27C}"
+	ProjectSection(SolutionItems) = preProject
+		release.yml = release.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,5 +24,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{112EE11A-DC08-4A2E-9096-A4E07E49D27C} = {26898102-8BF8-465E-8E63-86901F16F6D6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D02B9C33-A5E0-484E-B495-4C0E07346CBF}
 	EndGlobalSection
 EndGlobal
